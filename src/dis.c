@@ -44,61 +44,61 @@ _DIS_API enum dis_result dis_set_log_callback(struct dis_context* context, dis_l
 }
 
 
-enum dis_result dis_log(struct dis_context* context, enum dis_log_level log_level, char* message) {
+enum dis_result dis_log(const struct dis_context* context, enum dis_log_level log_level, const char* message) {
 	if (context == NULL || message == NULL)
 		return DIS_RESULT_FAILURE_NULL_POINTER;
 
-	((struct _dis_context_impl*) context)->log_callback(context, log_level, message);
+	((const struct _dis_context_impl*) context)->log_callback(context, log_level, message);
 
 	return DIS_RESULT_SUCCESS;
 }
 
 
-enum dis_result dis_log_debug(struct dis_context* context, char* message) {
+enum dis_result dis_log_debug(const struct dis_context* context, const char* message) {
 	if (context == NULL || message == NULL)
 		return DIS_RESULT_FAILURE_NULL_POINTER;
 
-	((struct _dis_context_impl*) context)->log_callback(context, DIS_LOG_LEVEL_DEBUG, message);
+	((const struct _dis_context_impl*) context)->log_callback(context, DIS_LOG_LEVEL_DEBUG, message);
 
 	return DIS_RESULT_SUCCESS;
 }
 
 
-enum dis_result dis_log_information(struct dis_context* context, char* message) {
+enum dis_result dis_log_information(const struct dis_context* context, const char* message) {
 	if (context == NULL || message == NULL)
 		return DIS_RESULT_FAILURE_NULL_POINTER;
 
-	((struct _dis_context_impl*) context)->log_callback(context, DIS_LOG_LEVEL_INFORMATION, message);
+	((const struct _dis_context_impl*) context)->log_callback(context, DIS_LOG_LEVEL_INFORMATION, message);
 
 	return DIS_RESULT_SUCCESS;
 }
 
 
-enum dis_result dis_log_warning(struct dis_context* context, char* message) {
+enum dis_result dis_log_warning(const struct dis_context* context, const char* message) {
 	if (context == NULL || message == NULL)
 		return DIS_RESULT_FAILURE_NULL_POINTER;
 
-	((struct _dis_context_impl*) context)->log_callback(context, DIS_LOG_LEVEL_WARNING, message);
+	((const struct _dis_context_impl*) context)->log_callback(context, DIS_LOG_LEVEL_WARNING, message);
 
 	return DIS_RESULT_SUCCESS;
 }
 
 
-enum dis_result dis_log_error(struct dis_context* context, char* message) {
+enum dis_result dis_log_error(const struct dis_context* context, const char* message) {
 	if (context == NULL || message == NULL)
 		return DIS_RESULT_FAILURE_NULL_POINTER;
 
-	((struct _dis_context_impl*) context)->log_callback(context, DIS_LOG_LEVEL_ERROR, message);
+	((const struct _dis_context_impl*) context)->log_callback(context, DIS_LOG_LEVEL_ERROR, message);
 
 	return DIS_RESULT_SUCCESS;
 }
 
 
-enum dis_result dis_log_critical(struct dis_context* context, char* message) {
+enum dis_result dis_log_critical(const struct dis_context* context, const char* message) {
 	if (context == NULL || message == NULL)
 		return DIS_RESULT_FAILURE_NULL_POINTER;
 
-	((struct _dis_context_impl*) context)->log_callback(context, DIS_LOG_LEVEL_CRITICAL, message);
+	((const struct _dis_context_impl*) context)->log_callback(context, DIS_LOG_LEVEL_CRITICAL, message);
 
 	return DIS_RESULT_SUCCESS;
 }

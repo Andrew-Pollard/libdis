@@ -60,7 +60,7 @@ enum dis_log_level {
 
 
 /* --------------------------- FUNCTION POINTERS ---------------------------- */
-typedef void (*dis_log_callback)(struct dis_context* context, enum dis_log_level log_level, char* message);
+typedef void (*dis_log_callback)(const struct dis_context* context, enum dis_log_level log_level, const char* message);
 
 
 /* ------------------------------- FUNCTIONS -------------------------------- */
@@ -70,12 +70,12 @@ _DIS_API enum dis_result dis_delete_context(struct dis_context* context);
 
 // Logging
 _DIS_API enum dis_result dis_set_log_callback(struct dis_context* context, dis_log_callback callback);
-enum dis_result dis_log(struct dis_context* context, enum dis_log_level log_level, char* message);
-enum dis_result dis_log_debug(struct dis_context* context, char* message);
-enum dis_result dis_log_information(struct dis_context* context, char* message);
-enum dis_result dis_log_warning(struct dis_context* context, char* message);
-enum dis_result dis_log_error(struct dis_context* context, char* message);
-enum dis_result dis_log_critical(struct dis_context* context, char* message);
+enum dis_result dis_log(const struct dis_context* context, enum dis_log_level log_level, const char* message);
+enum dis_result dis_log_debug(const struct dis_context* context, const char* message);
+enum dis_result dis_log_information(const struct dis_context* context, const char* message);
+enum dis_result dis_log_warning(const struct dis_context* context, const char* message);
+enum dis_result dis_log_error(const struct dis_context* context, const char* message);
+enum dis_result dis_log_critical(const struct dis_context* context, const char* message);
 
 
 #endif /* _DIS_H_ */
